@@ -6,9 +6,11 @@
 ## 🗓️ 프로젝트 기간
 2025년 11월 03일 ~ 2025년 11월 14일
 
+## 💁 팀장
+- 곽동원 [@eee334223](https://github.com/eee334223)
+
 ## 🧑‍💻 팀원
 - 강지연 [@nouve53](https://github.com/nouve53)
-- 곽동원 [@eee334223](https://github.com/eee334223)
 - 안호용 [@hodol0213](https://github.com/hodol0213)
 - 정수아 [@data-suah15](https://github.com/data-suah15)
 
@@ -153,7 +155,7 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 │   │   └── 📄 finetuning.txt
 │   │
 │   └── review/                          # 리뷰 데이터
-│       └── 📄 musinsa_review_{goods_no}.csv
+│       └── 📄 musinsa_reviews_{goods_no}.csv
 │
 └── processed/                           # 텍스트 전처리
     ├── model/                           # 모델 학습용
@@ -162,10 +164,14 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
     │   └── 📄 finetuning_preprocessed.txt
     │
     └── review/                          # 감성 분류
-        ├── ELECTRA/
-        │   └── 📄 labeled_review_{goods_no}.csv
-        └── BERT/
-            └── 📄 labeled_review_{goods_no}.csv
+        ├── KcBERT/
+        │   └── 📄 labeled_reviews_{goods_no}.csv
+        ├── KcELECTRA/
+        │   └── 📄 labeled_reviews_{goods_no}.csv
+        ├── ReBERT/
+        │   └── 📄 labeled_reviews_{goods_no}.csv
+        └── ReELECTRA/
+            └── 📄 labeled_reviews_{goods_no}.csv
 ```
 
 </details>
