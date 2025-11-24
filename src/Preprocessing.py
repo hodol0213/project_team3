@@ -50,10 +50,14 @@ def preprocess_dataframe(df):
     return df
 
 def file_save(path):
+    # filename_extension : file path "."을 기준으로 분리하고 배열의 마지막에 저장된 문자열을 통해 파일 확장자 확인
+    filename_extension = path.split(".")[-1]
     # txt -> dataframe
-    df = pd.read_csv(path, sep="\t", header=None)
+    if filename_extension == "txt":
+        df = pd.read_csv(path, sep="\t", header=None)
     # csv -> dataframe
-    # df = pd.read_csv(path, sep=",", header=None)
+    elif filename_extension == "csv":
+        df = pd.read_csv(path, sep=",", header=None)
 
     # df.dropna() : 결측치 제거
     df.dropna(axis=0, inplace=True)
@@ -67,22 +71,25 @@ def file_save(path):
     df = preprocess_dataframe(df)
 
     # 파일을 저장할 폴더 경로
-    path_folder = "datasets"
+    path_folder = "./data/processed/model"
 
     # 해당 폴더가 없으면
     if not os.path.exists(path_folder):
         # 폴더 생성
-        os.mkdir(path_folder)
+        os.makedirs(path_folder)
 
     # dataframe -> txt
     # 지정된 경로에 txt 파일로 변환한 파일 저장
     filename = os.path.splitext(os.path.basename(path))[0]
-    save_path = f'{path_folder}/{filename}_preprocessing.txt'
+    save_path = f'{path_folder}/{filename}_preprocessed.txt'
 
     # index = False : 인덱스 포함 X
     df.to_csv(save_path, sep = '\t', index = False)
     print(f"✅ 파일 저장 위치 : {save_path}")
 
 if __name__ == "__main__":
-    path = "datasets/pretrain.txt"
+    # file_name : 전처리 수행할 파일명(ex. pretraining.txt, dapt.txt, finetuning.csv)
+    file_name = "pretraining.txt"
+
+    path = f"./data/raw/model/{file_name}"
     file_save(path)
