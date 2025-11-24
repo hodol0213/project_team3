@@ -80,7 +80,7 @@ ELECTRA는 BERT 기반 Transformer 구조 위에 GAN 아이디어를 적용한 �
 
 ---
 
-## 3. 학습 데이터(수정 필요)
+## 3. 🗂️ 학습 데이터(수정 필요)
 
 ### 1) Pre-training 데이터 (약 300만 문장)
 
@@ -105,7 +105,7 @@ ELECTRA는 BERT 기반 Transformer 구조 위에 GAN 아이디어를 적용한 �
 
 ---
 
-## 4. 전처리(수정 필요)
+## 4. 🧹 전처리(수정 필요)
 
 KcBERT 정제 규칙을 참고하여 다음을 적용:
 
@@ -116,7 +116,7 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 
 ---
 
-## 5. 🛠️ 주요 라이브러리(requirements.txt 추가)
+## 5. 🛠️ 주요 라이브러리
 
 ### ✔ Modeling
 - torch
@@ -141,8 +141,6 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 ---
 
 ## 6. 📁 프로젝트 구조
-
-📂 project/
 
 <details>
 <summary>📂 data/</summary>
@@ -180,25 +178,31 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 <summary>📂 model/</summary>
 
 ```
-├── ReBERT/
-│   ├── checkpoints/                # 체크포인트
-│   ├── pretrained/                 # 사전학습 모델
-│   ├── DAPT/                       # DAPT 모델
+├── KcBERT/
 │   └── finetuned/                  # 파인튜닝 모델
+│       └── checkpoints/
+│
+├── KcELECTRA/
+│   └── finetuned/                  # 파인튜닝 모델
+│       └── checkpoints/
+│
+├── ReBERT/
+│   ├── pretrained/                 # 사전학습 모델
+│   │   └── checkpoints/
+│   ├── DAPT/                       # DAPT 모델
+│   │   └── checkpoints/
+│   └── finetuned/                  # 파인튜닝 모델
+│       └── checkpoints/
 │
 ├── ReELECTRA/
-│   ├── checkpoints/                # 체크포인트
 │   ├── pretrained/                 # 사전학습 모델
+│   │   └── checkpoints/
 │   ├── DAPT/                       # DAPT 모델
+│   │   └── checkpoints/
 │   └── finetuned/                  # 파인튜닝 모델
+│       └── checkpoints/
 │
-├── KcBERT/
-│   ├── checkpoints/                # 체크포인트
-│   └── finetuned/                  # 파인튜닝 모델
-│
-└── KcELECTRA/
-    ├── checkpoints/                # 체크포인트
-    └── finetuned/                  # 파인튜닝 모델
+└── tokenizer/
 ```
 
 </details>
@@ -207,32 +211,24 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 <summary>📂 src/</summary>
 
 ```
-├── classification.py
-├── crawling.py
-├── KcBERT.py
-├── KcELECTRA.py
-├── preprocessing.py
-├── tokenizer.py
-│
+├── KcBERT/
+├── KcELECTRA/
 ├── ReBERT/
-│   ├── pretraining.py
-│   ├── DAPT.py
-│   └── finetuning.py
-│
-└── ReELECTRA/
-    ├── pretraining.py
-    ├── DAPT.py
-    └── finetuning.py
+├── ReELECTRA/
+├── Classification.py
+├── Crawling.py
+├── Preprocessing.py
+└── Tokenizer.py
 ```
 
 </details>
 
 <details>
-<summary>📄 requirements.txt</summary>
+<summary>📄 README.md</summary>
 </details>
 
 <details>
-<summary>📄 README.md</summary>
+<summary>📄 requirements.txt</summary>
 </details>
 
 ---
@@ -247,15 +243,21 @@ KcBERT 정제 규칙을 참고하여 다음을 적용:
 
 ---
 
-## 8. ⚙️ 설치 방법(자세히 작성)
+## 8. ⚙️ 설치 방법
 
 ### 1) 저장소 클론
 ```python
-git clone https://github.com/username/project.git
+git clone https://github.com/nouve53/team3.git
 cd project
 ```
 
-### 2) 환경 설정
+### 2) 가상환경 생성
+```cmd
+conda create -name <new_env> python=3.9
+conda activate <new_env>
+```
+
+### 3) 패키지 설치
 ```python
 pip install -r requirements.txt
 ```

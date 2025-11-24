@@ -1,12 +1,12 @@
 # config.py
 CONFIG = {
     # paths
-    "TOKENIZER_DIR": "./tokenizer",
-    "FINETUNE_DATA_PATH": "./datasets/Fine-tuning_shopping.txt",
+    "TOKENIZER_DIR": "./model/tokenizer",
+    "FINETUNE_DATA_PATH": "./data/processed/model/finetuning_preprocessed.txt",
 
     # outputs
-    "OUTPUT_DIR": "./Re_ELECTRA_Finetuning_checkpoint",
-    "FINAL_SAVE_DIR": "./Re_ELECTRA_Finetuning",
+    "OUTPUT_DIR": "./model/ReELECTRA/finetuned/checkpoints",
+    "FINAL_SAVE_DIR": "./model/ReELECTRA/finetuned",
 
     # tokenization
     "MAX_LENGTH": 128,

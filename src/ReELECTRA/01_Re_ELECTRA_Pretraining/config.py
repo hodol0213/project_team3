@@ -1,8 +1,8 @@
 CONFIG = {
-    "TOKENIZER_DIR": "./tokenizer",
-    "DATA_PATH": "./datasets/Pre-training_dataset.txt",
-    "OUTPUT_DIR": "./Re_ELECTRA_Pretraining_checkpoint",
-    "FINAL_SAVE_DIR": "./Re_ELECTRA_Pretraining",
+    "TOKENIZER_DIR": "./model/tokenizer",
+    "DATA_PATH": "./data/processed/model/pretraining_preprocessed.txt",
+    "OUTPUT_DIR": "./model/ReELECTRA/pretrained/checkpoints",
+    "FINAL_SAVE_DIR": "./model/ReELECTRA/pretrained",
     "MAX_LENGTH": 128,
     "MLM_PROB": 0.15,
     "DISCRIMINATOR_LR": 1e-4,

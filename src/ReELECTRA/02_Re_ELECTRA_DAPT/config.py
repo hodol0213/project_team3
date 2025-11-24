@@ -1,11 +1,11 @@
 CONFIG = {
     # paths
-    "TOKENIZER_DIR": "./tokenizer",
-    "DAPT_DATA_PATH": "./datasets/DAPT_dataset.txt",
+    "TOKENIZER_DIR": "./model/tokenizer",
+    "DAPT_DATA_PATH": "./data/processed/model/dapt_preprocessed.txt",
 
     # checkpoints / outputs
-    "OUTPUT_DIR": "./Re_ELECTRA_DAPT_checkpoint",
-    "FINAL_SAVE_DIR": "./Re_ELECTRA_DAPT",
+    "OUTPUT_DIR": "./model/ReELECTRA/DAPT/checkpoints",
+    "FINAL_SAVE_DIR": "./model/ReELECTRA/DAPT",
 
     # tokenization / dataloader
     "MAX_LENGTH": 128,
